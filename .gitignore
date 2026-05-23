@@ -6,8 +6,11 @@ target/
 *.iml
 local.properties
 node_modules/
-webtarget/
-server/webtarget/
+server/webtarget/node/
+server/webtarget/node_modules/
+server/webtarget/lib/
+server/webtarget/bower_components/
+server/src/main/webapp/lib/
 *.log
 .DS_Store
 Thumbs.db

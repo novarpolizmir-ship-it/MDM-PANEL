@@ -1,0 +1,9 @@
+.git
+target/
+**/target/
+**/node_modules/
+**/node/
+server/webtarget/lib/
+server/webtarget/bower_components/
+server/src/main/webapp/lib/
+*.log

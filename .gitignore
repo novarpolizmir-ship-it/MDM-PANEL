@@ -1,0 +1,13 @@
+target/
+*.war
+*.class
+*.jar
+.idea/
+*.iml
+local.properties
+node_modules/
+webtarget/
+server/webtarget/
+*.log
+.DS_Store
+Thumbs.db

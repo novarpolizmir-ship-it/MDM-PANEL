@@ -34,7 +34,7 @@
                                     contentAppId, wifiSSID, wifiPassword, wifiSecurityType, encryptDevice, qrParameters, adminExtras, mobileEnrollment, kioskHome, kioskRecents,
                                     kioskNotifications, kioskSystemInfo, kioskKeyguard, kioskLockButtons, kioskScreenOn, launcherUrl, restrictions, autoUpdate,
                                     blockStatusBar, systemUpdateType, systemUpdateFrom, systemUpdateTo,
-                                    scheduleAppUpdate, appUpdateFrom, appUpdateTo, downloadUpdates, defaultFilePath)
+                                    scheduleAppUpdate, appUpdateFrom, appUpdateTo, downloadUpdates, defaultFilePath, lastUpdate)
         VALUES (#{name}, #{description}, #{type}, #{password}, #{backgroundColor}, #{textColor}, #{backgroundImageUrl},
                 #{iconSize}, #{desktopHeader}, #{desktopHeaderTemplate}, #{displayStatus}, #{useDefaultDesignSettings}, #{customerId},
                 #{gps}, #{bluetooth}, #{wifi}, #{mobileData}, #{usbStorage}, #{requestUpdates}, #{disableLocation}, #{appPermissions},
@@ -45,7 +45,8 @@
                 #{contentAppId}, #{wifiSSID}, #{wifiPassword}, #{wifiSecurityType}, #{encryptDevice}, #{qrParameters}, #{adminExtras}, #{mobileEnrollment}, #{kioskHome}, #{kioskRecents},
                 #{kioskNotifications}, #{kioskSystemInfo}, #{kioskKeyguard}, #{kioskLockButtons}, #{kioskScreenOn}, #{launcherUrl}, #{restrictions}, #{autoUpdate},
                 #{blockStatusBar}, #{systemUpdateType}, #{systemUpdateFrom}, #{systemUpdateTo},
-                #{scheduleAppUpdate}, #{appUpdateFrom}, #{appUpdateTo}, #{downloadUpdates}, #{defaultFilePath})
+                #{scheduleAppUpdate}, #{appUpdateFrom}, #{appUpdateTo}, #{downloadUpdates}, #{defaultFilePath},
+                CAST(EXTRACT(EPOCH FROM NOW()) * 1000 AS BIGINT))
     </insert>
 
     <insert id="insertConfigurationApplications">

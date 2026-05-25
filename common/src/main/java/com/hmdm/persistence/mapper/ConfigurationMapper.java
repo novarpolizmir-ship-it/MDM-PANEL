@@ -137,7 +137,8 @@ public interface ConfigurationMapper {
             "appUpdateFrom=#{appUpdateFrom}, " +
             "appUpdateTo=#{appUpdateTo}, " +
             "downloadUpdates=#{downloadUpdates}, " +
-            "defaultFilePath=#{defaultFilePath} " +
+            "defaultFilePath=#{defaultFilePath}, " +
+            "lastUpdate=CAST(EXTRACT(EPOCH FROM NOW()) * 1000 AS BIGINT) " +
             "WHERE id=#{id}"})
     void updateConfiguration(Configuration configuration);
 

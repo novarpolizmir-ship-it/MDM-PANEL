@@ -46,6 +46,7 @@
         <result property="phone" column="phone"/>
         <result property="customerId" column="customerId"/>
         <result property="configName" column="configName"/>
+        <result property="configLastUpdate" column="configLastUpdate"/>
         <result property="launcherPkg" column="launcherPkg"/>
         <result property="launcherVersion" column="launcherVersion"/>
         <result property="mdmMode" column="mdmMode"/>
@@ -254,6 +255,7 @@
                devices.custom1, devices.custom2, devices.custom3, devices.oldNumber, devices.fastSearch,
                groups.id AS groupId, groups.name AS groupName,
                configurations.name as configName,
+               configurations.lastUpdate as configLastUpdate,
                applications.pkg AS launcherPkg,
                applicationVersions.version AS launcherVersion,
                CASE

@@ -78,6 +78,8 @@ public class Device implements CustomerData, Serializable {
     private Configuration configuration;
     @ApiModelProperty(hidden = true)
     private String configName;
+    @ApiModelProperty("Timestamp when the assigned configuration was last modified (epoch ms)")
+    private long configLastUpdate;
     @ApiModelProperty(hidden = true)
     @Deprecated
     private String oldConfigName;
@@ -189,6 +191,14 @@ public class Device implements CustomerData, Serializable {
 
     public void setConfigName(String configName) {
         this.configName = configName;
+    }
+
+    public long getConfigLastUpdate() {
+        return configLastUpdate;
+    }
+
+    public void setConfigLastUpdate(long configLastUpdate) {
+        this.configLastUpdate = configLastUpdate;
     }
 
     public boolean isApplied() {

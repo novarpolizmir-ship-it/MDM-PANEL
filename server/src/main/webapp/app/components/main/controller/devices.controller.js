@@ -852,6 +852,30 @@ angular.module('headwind-kiosk')
         };
 
 
+        // Gets the config sync status: green = device has synced after last config change, yellow = unknown/no data, red = device hasn't synced yet
+        $scope.getConfigSyncStatusImage = function (device) {
+            if (!device.lastUpdate || !device.configLastUpdate || device.configLastUpdate === 0) {
+                return 'images/circle-grey.png';
+            }
+            if (device.lastUpdate >= device.configLastUpdate) {
+                return 'images/circle-green.png';
+            } else {
+                return 'images/circle-red.png';
+            }
+        };
+
+        $scope.getConfigSyncStatusTitle = function (device) {
+            if (!device.lastUpdate || !device.configLastUpdate || device.configLastUpdate === 0) {
+                return localization.localize('devices.config.sync.unknown');
+            }
+            if (device.lastUpdate >= device.configLastUpdate) {
+                return localization.localize('devices.config.sync.ok');
+            } else {
+                return localization.localize('devices.config.sync.pending');
+            }
+        };
+
+
         // Gets the status of the configuration applications for the device. Checks which applications are not installed
         // on device (sets status = 1), which are installed but have their version mismatching (sets status = 2) and
         // which are installed and have their versions matching (sets status = 3). If application is installed on device

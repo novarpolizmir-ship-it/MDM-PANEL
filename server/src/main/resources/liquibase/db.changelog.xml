@@ -2609,4 +2609,14 @@
         </rollback>
     </changeSet>
 
+    <changeSet id="25.05.26-23:37" author="yusuuf" context="common">
+        <comment>Column,new: configurations#lastUpdate - track when config was last modified</comment>
+        <sql>
+            ALTER TABLE configurations ADD COLUMN lastUpdate BIGINT NOT NULL DEFAULT 0;
+        </sql>
+        <rollback>
+            ALTER TABLE configurations DROP COLUMN lastUpdate;
+        </rollback>
+    </changeSet>
+
 </databaseChangeLog>

@@ -276,6 +276,9 @@
                 <span ng-if='paging.sortBy === "CONFIGURATION"' class="glyphicon"
                       ng-class="{'glyphicon-sort-by-alphabet': paging.sortAsc, 'glyphicon-sort-by-alphabet-alt': !paging.sortAsc}"></span>
             </th>
+            <th>
+                <span localized>table.heading.device.config.status</span>
+            </th>
             <th ng-if="settings.columnDisplayedDeviceDesc" ng-click="sortData('DESCRIPTION')" class="pointer">
                 <span localized>table.heading.device.desc</span>
                 <span ng-if='paging.sortBy === "DESCRIPTION"' class="glyphicon"
@@ -392,6 +395,11 @@
                 <a class="action-link" ng-click="editConfiguration(device.configuration)">{{device.configuration.name}}</a>
             </td>
             <td ng-if="settings.columnDisplayedDeviceConfiguration && (!hasPermission('configurations') || !configAvailable(device.configuration))">{{device.configuration.name}}
+            </td>
+            <td>
+                <img class='device-indicator'
+                     ng-src='{{getConfigSyncStatusImage(device)}}'
+                     title='{{getConfigSyncStatusTitle(device)}}'>
             </td>
             <td ng-if="settings.columnDisplayedDeviceDesc">
                 <span ng-bind-html="formatMultiLine(device.description)"></span>

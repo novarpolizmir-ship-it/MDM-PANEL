@@ -175,6 +175,9 @@ public class Configuration implements CustomerData, Serializable {
     @ApiModelProperty("Additional comma separated restrictions in MDM mode")
     private String restrictions;
 
+    @ApiModelProperty("Timestamp when this configuration was last modified (epoch ms)")
+    private long lastUpdate;
+
     // This group of settings corresponds to Design settings
     private boolean useDefaultDesignSettings;
     @ApiModelProperty("A background color to use when running MDM application")
@@ -546,6 +549,14 @@ public class Configuration implements CustomerData, Serializable {
 
     public void setRestrictions(String restrictions) {
         this.restrictions = restrictions;
+    }
+
+    public long getLastUpdate() {
+        return lastUpdate;
+    }
+
+    public void setLastUpdate(long lastUpdate) {
+        this.lastUpdate = lastUpdate;
     }
 
     public String getBaseUrl() {

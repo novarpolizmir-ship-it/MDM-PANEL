@@ -190,6 +190,11 @@ public class DeviceView {
         return device.getStatusCode();
     }
 
+    @ApiModelProperty("Timestamp when the assigned configuration was last modified (epoch ms)")
+    public long getConfigLastUpdate() {
+        return device.getConfigLastUpdate();
+    }
+
     @ApiModelProperty("An info on device state submitted by device to MDM server")
     public DeviceInfoView getInfo() {
         return deviceInfo;
